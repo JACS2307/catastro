@@ -1,7 +1,9 @@
 import  express  from "express";
 import { postgraphile } from "postgraphile";
-
+import cors from 'cors';
 const app = express();
+
+app.use(cors())
 
 app.use(
     postgraphile(
@@ -15,6 +17,6 @@ app.use(
     ),
 );
 
-app.listen(3000, () =>{
-    console.log('escuchando en el puerto 3000');
+app.listen(4000, () =>{
+    console.log('escuchando en el puerto 4000');
 });
