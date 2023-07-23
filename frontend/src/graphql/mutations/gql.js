@@ -16,6 +16,17 @@ export const CREATE_PREDIO = gql`
   }
 `;
 
+
+export const DELETE_PROPIETARIO_BY_ID = gql`
+  mutation deletePropietarioById($input: DeletePropietarioByIdInput!) {
+    deletePropietarioById(input: $input) {
+      propietario {
+        id
+      }
+    }
+  }
+`;
+
 export const DELETE_PREDIO_BY_ID = gql`
   mutation deletePredioById($input: DeletePredioByIdInput!) {
     deletePredioById(input: $input) {
@@ -46,8 +57,6 @@ export const DELETE_TERRENO_BY_ID = gql`
   }
 `;
 
-
-
 export const UPDATE_PREDIO = gql`
   mutation UpdatePredio($id: Int!, $input: PredioPatch!) {
     updatePredioById(input: { id: $id, predioPatch: $input }) {
@@ -58,24 +67,35 @@ export const UPDATE_PREDIO = gql`
   }
 `;
 
-export const INSERT_CONSTRUCCION= gql`
-mutation InsertConstruccion($input: CreateConstruccionInput!) {
-  createConstruccion(input: $input) {
-    construccion {
-      id
+export const INSERT_CONSTRUCCION = gql`
+  mutation InsertConstruccion($input: CreateConstruccionInput!) {
+    createConstruccion(input: $input) {
+      construccion {
+        id
+      }
     }
   }
-}
 `;
 
-export const INSERT_TERRENO= gql`
-mutation InsertTerreno($input: CreateTerrenoInput!) {
-  createTerreno(input: $input) {
-    terreno{
-      id
+export const INSERT_PROPIETARIO = gql`
+  mutation InsertPropietario($input: CreatePropietarioInput!) {
+    createPropietario(input: $input) {
+      propietario {
+        id
+      }
     }
   }
-}
+`;
+
+
+export const INSERT_TERRENO = gql`
+  mutation InsertTerreno($input: CreateTerrenoInput!) {
+    createTerreno(input: $input) {
+      terreno {
+        id
+      }
+    }
+  }
 `;
 
 export const UPDATE_CONSTRUCCION = gql`
@@ -98,3 +118,12 @@ export const UPDATE_TERRENO = gql`
   }
 `;
 
+export const UPDATE_PROPIETARIO = gql`
+  mutation updatePropietario($input: UpdatePropietarioByIdInput!) {
+    updatePropietarioById(input: $input) {
+      propietario {
+        id
+      }
+    }
+  }
+`;

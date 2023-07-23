@@ -33,13 +33,6 @@ const ConstruccionForm = ({ onSubmit, initialValues = undefined }) => {
         <InputNumber style={{ float: "right" }} />
       </Item>
       <Item
-        name="direccion"
-        label="Dirección:"
-        rules={[{ required: true, message: "La dirección es obligatoria" }]}
-      >
-        <Input />
-      </Item>
-      <Item
         name="tipoConstruccion"
         label="Tipo de construcción:"
         rules={[

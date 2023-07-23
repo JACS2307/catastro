@@ -39,8 +39,7 @@ query allConstruccions {
     nodes{
       id
       numPisos
-      areaTotal
-      direccion
+      areaTotal      
       tipoConstruccion
       idPredio
     }
@@ -92,8 +91,7 @@ export const GET_PREDIO_DETAILS = gql`
           nodes {
             id
             numPisos
-            areaTotal
-            direccion
+            areaTotal            
             tipoConstruccion
             tipoConstruccionByTipoConstruccion {
               nombre
@@ -103,6 +101,7 @@ export const GET_PREDIO_DETAILS = gql`
     	 propietarios: propietariosByIdPredio {
         nodes {
           id
+          idPredio
           telefono
           direccion
           correo

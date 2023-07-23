@@ -25,7 +25,7 @@ import LayoutGeneral from "../../src/components/LayoutGeneral";
 
 
 const Home = () => {
-  const { data } = useQuery(ALL_PREDIOS);
+  const { data, refetch } = useQuery(ALL_PREDIOS);
   const [showModal, setShowModal] = useState(false);
   
   const [createPredio] = useMutation(CREATE_PREDIO);
@@ -52,6 +52,7 @@ const Home = () => {
     } else {
       message.error("Ha ocurrido un error al intentar crear el predio :(");
     }
+    refetch();
   };
 
   const onDeletePredio = async (predio) => {

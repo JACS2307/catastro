@@ -22,7 +22,7 @@ CREATE TABLE terreno (
   fuentes_agua boolean default false,
   num_construcciones int not null,
   tipo int references tipo_terreno(id),
-  id_predio int not null references predio(id) 
+  id_predio int not null references predio(id) ON DELETE CASCADE
 );
 
 CREATE TABLE tipo_documento (
@@ -38,7 +38,7 @@ CREATE TABLE propietario (
   numero_documento int not null,
   nombre_completo varchar(90) not null,
   tipo_documento int not null REFERENCES tipo_documento(id),
-  id_predio int not null references predio(id)
+  id_predio int references predio(id) ON DELETE CASCADE
 );
 
 CREATE TABLE tipo_construccion (
@@ -50,23 +50,8 @@ CREATE TABLE construccion (
   id serial primary key,
   num_pisos int not null, 
   area_total float not null,
-  direccion varchar(200) not null,
   tipo_construccion int not null REFERENCES tipo_construccion(id),
-  id_predio int not null REFERENCES predio(id)
-);
-
-CREATE TABLE municipio (
-  id serial primary key,
-  nombre varchar(50) not null unique,
-  categoria int not null
-);
-
-CREATE TABLE recaudo (  
-  id serial primary key,
-  pagado boolean,
-  fecha_pago date,
-  id_municipio int not null references municipio(id),
-  id_predio int not null references predio(id)
+  id_predio int not null REFERENCES predio(id) ON DELETE CASCADE
 );
 
 -- Insert's

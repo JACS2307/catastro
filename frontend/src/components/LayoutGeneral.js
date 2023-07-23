@@ -24,8 +24,7 @@ function getItem(label, key, icon, children) {
   
   const items = [
     getItem("Home", "", <HomeOutlined />),
-    getItem("Predio", "predio", <BankOutlined />),
-    getItem("Propietario", "propietario", <UserOutlined />),
+    getItem("Predio", "predio", <BankOutlined />),    
   ];
 
 const LayoutGeneral = ({ children }) => {

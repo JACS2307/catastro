@@ -241,6 +241,10 @@ const PredioDetail = () => {
     }
   };
 
+  const addPropietario = () =>{
+    router.push(`/propietario/${id}`);
+  }
+
   console.log(predioData);
 
   return (
@@ -278,6 +282,14 @@ const PredioDetail = () => {
                   style={{ marginLeft: "25px" }}
                 >
                   Agregar terreno
+                </Button>
+                <Button
+                  type="primary"
+                  onClick={addPropietario}
+                  icon={<PlusOutlined />}
+                  style={{ marginLeft: "25px" }}
+                >
+                  Agregar Propietario
                 </Button>
               </>
             </Card>
@@ -364,8 +376,7 @@ const PredioDetail = () => {
               style={{ width: 250, height: 250, margin: "1em" }}
             >
               <p>Número de pisos: {construccion.numPisos}</p>
-              <p>Área Total: {construccion.areaTotal}</p>
-              <p>Dirección: {construccion.direccion}</p>
+              <p>Área Total: {construccion.areaTotal}</p>              
               <p>
                 Tipo de construcción:{" "}
                 {construccion.tipoConstruccionByTipoConstruccion.nombre}
