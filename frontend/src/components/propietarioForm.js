@@ -22,22 +22,22 @@ const PropietarioForm = ({
     >
       <Item name="id" hidden/>
       <Item  name="telefono" label="Telefono" rules={[{required: true, message: 'El número de telefono es obligatorio'}]}>
-        <InputNumber style={{float:"right"}} />            
+        <InputNumber style={{float:"right", width:"300px"}} />            
       </Item>
-      <Item name="correo" label="Correo">
-        <Input style={{float:"right"}} />            
+      <Item name="correo" label="Correo" rules={[{required: true, message: 'El correo es obligatorio'}]}>
+        <Input style={{float:"right", width:"300px"}} />            
       </Item>
-      <Item  name="direccion" label="Dirección">
-        <Input  />
+      <Item  name="direccion" label="Dirección" rules={[{required: true, message: 'La dirección es obligatoria'}]}>
+        <Input style={{float:"right",width:"300px"}} />
       </Item>
-      <Item  name="numeroDocumento"  label="Número de documento">
-        <InputNumber />
+      <Item  name="numeroDocumento"  label="Número de documento"rules={[{required: true, message: 'El número de documento es obligatorio'}]}>
+        <InputNumber style={{float:"right", width:"300px"}}/>
       </Item>
-      <Item name="nombreCompleto" label="Nombre Completo">
-        <Input  />
+      <Item name="nombreCompleto" label="Nombre Completo" rules={[{required: true, message: 'El nombre completo es obligatorio'}]}>
+        <Input style={{float:"right", width:"300px"}} />
       </Item>
-      <Item  name="tipoDocumento"  label="Tipo de documento"rules={[{required: true, message: 'La dirección es obligatoria'}]}>
-      <Select>
+      <Item  name="tipoDocumento"  label="Tipo de documento"rules={[{required: true, message: 'El tipo de documento es obligatorio'}]}>
+      <Select style={{float:"right", width:"300px"}}>
           <Option value={1}>CC</Option>
           <Option value={2}>NIT</Option>
         </Select>

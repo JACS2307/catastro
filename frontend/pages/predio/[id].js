@@ -122,7 +122,7 @@ const PredioDetail = () => {
         input: predioTemp,
       },
     });
-
+    message.success("Predio Actualizado");
     console.log("Predio actualizado:", data.updatePredio);
     refetch();
   };
@@ -181,7 +181,7 @@ const PredioDetail = () => {
       });
       if (data.updateTerrenoById?.terreno?.id) {
         // lo creo
-        message.success("Terreno Actualizada");
+        message.success("Terreno Actualizado");
         setShowModalTerreno(false);
       } else {
         message.error("Hubo un error al intentar a actualizar el terreno");
@@ -241,9 +241,9 @@ const PredioDetail = () => {
     }
   };
 
-  const addPropietario = () =>{
+  const addPropietario = () => {
     router.push(`/propietario/${id}`);
-  }
+  };
 
   console.log(predioData);
 
@@ -258,13 +258,13 @@ const PredioDetail = () => {
               style={{
                 display: "flex",
                 position: "relative",
-                // left: "400px",
                 top: "15px",
+                left: "180px",
                 // marginLeft: "300px",
                 // width: 600,
-                height: 600,
+                height: 550,
                 margin: "1em",
-                // width: "30%",
+                width: "80%",
               }}
             >
               <>
@@ -301,13 +301,14 @@ const PredioDetail = () => {
           {predioData?.terrenos?.nodes?.map((terreno) => {
             return (
               <Card
-                title={terreno.idPredio}
+                title={"Terreno".terrreno}
                 bordered={false}
-                style={{ width: 250, height: 250, margin: "1em" }}
+                style={{ width: 280, height: 400, margin: "1em"
+              ,position:"relative", marginLeft:"100px" }}
               >
                 <p>Area total: {terreno.areaTotal}</p>
                 <p>Valor comercial: {terreno.valorComercial}</p>
-                <p>FUente de agua: {terreno.fuentesAgua}</p>
+                <p>Fuente de agua: {terreno.fuentesAgua ? "Sí" : "No"}</p>
                 <p>Numero de construcciones: {terreno.numConstrucciones}</p>
                 <p>Tipo de construcción: {terreno.tipoTerrenoByTipo.nombre}</p>
 
@@ -318,18 +319,18 @@ const PredioDetail = () => {
                     setTerrenoModal(terreno);
                   }}
                   icon={<EditOutlined />}
-                  style={{ marginLeft: "25px" }}
+                  style={{ width: "200px" }}
                 >
                   Modificar terreno
                 </Button>
                 <Button
-                style={{ marginLeft: "55px" }}
-                icon={<DeleteOutlined />}
-                type="primary"
-                onClick={() => onDeleteTerreno(terreno)}
-              >
-                Eliminar terreno
-              </Button>
+                  style={{ width: "200px", top: "20px" }}
+                  icon={<DeleteOutlined />}
+                  type="primary"
+                  onClick={() => onDeleteTerreno(terreno)}
+                >
+                  Eliminar terreno
+                </Button>
               </Card>
             );
           })}
@@ -357,6 +358,7 @@ const PredioDetail = () => {
       </Modal>
       <Divider>Construcciones</Divider>
       <Button
+        style={{ position: "relative", top: "-50px" }}
         type="primary"
         onClick={() => {
           setConstruccionModal(undefined);
@@ -367,16 +369,21 @@ const PredioDetail = () => {
       >
         Agregar Construcción
       </Button>
-      <Space wrap>
+      <Space wrap style={{ position: "relative", top: "0px", height: "400px" }}>
         {predioData?.construcciones?.nodes?.map((construccion) => {
           return (
             <Card
               title={construccion.idPredio}
               bordered={false}
-              style={{ width: 250, height: 250, margin: "1em" }}
+              style={{
+                width: 300,
+                height: 280,
+                margin: "1em",
+                alignItems: "center",
+              }}
             >
               <p>Número de pisos: {construccion.numPisos}</p>
-              <p>Área Total: {construccion.areaTotal}</p>              
+              <p>Área Total: {construccion.areaTotal}</p>
               <p>
                 Tipo de construcción:{" "}
                 {construccion.tipoConstruccionByTipoConstruccion.nombre}
@@ -384,17 +391,17 @@ const PredioDetail = () => {
 
               <Button
                 type="primary"
+                style={{ position: "relative", left: "0px" }}
                 onClick={() => {
                   setShowModalConstruccion(true);
                   setConstruccionModal(construccion);
                 }}
                 icon={<EditOutlined />}
-                style={{ marginLeft: "25px" }}
               >
                 Modificar construcción
               </Button>
               <Button
-                style={{ marginLeft: "55px" }}
+                style={{ width: "200px", top: "15px" }}
                 icon={<DeleteOutlined />}
                 type="primary"
                 onClick={() => onDeleteConstruccion(construccion)}
@@ -405,6 +412,25 @@ const PredioDetail = () => {
           );
         })}
       </Space>
+      <Divider>Propietarios</Divider>
+      <Space wrap>
+          {data?.predioById?.propietarios?.nodes?.map((propietario) => {
+            return (
+              <Card
+                title={propietario.nombreCompleto}
+                bordered={false}
+                style={{ width: 300, height: 350, margin: "1em" , top:"-10px"}}
+              >
+                <p>Nombre Completo: {propietario.nombreCompleto}</p>
+                <p>Tipo de Documento: {propietario.tipoDocumentoByTipoDocumento.nombre}</p>
+                <p>Número de documento: {propietario.numeroDocumento}</p>
+                <p>Telefono: {propietario.telefono}</p>
+                <p>Direccion: {propietario.direccion}</p>
+                <p>Correo: {propietario.correo}</p>
+              </Card>
+            );
+          })}
+        </Space>
     </LayoutGeneral>
   );
 };

@@ -1,8 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
-
-import { Button, Divider,  } from "antd";
+import { Button, Divider, Typography } from "antd";
 import { useRouter } from "next/router";
 import { useQuery } from "@apollo/client";
 import { ALL_PREDIOS } from "../src/graphql/querys/gql";
@@ -18,6 +16,7 @@ import {
 import { Breadcrumb, Layout, Menu, theme, Card, Space } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
+const { Text, Link } = Typography;
 
 function getItem(label, key, icon, children) {
   return {
@@ -31,7 +30,7 @@ function getItem(label, key, icon, children) {
 const items = [
   getItem("Home", "", <HomeOutlined />),
   getItem("Predio", "predio", <BankOutlined />),
-  getItem("Propietario", "propietario", <UserOutlined />),
+
 ];
 
 <elementos />
@@ -79,7 +78,7 @@ const Home = () => {
       >
         <Breadcrumb
           style={{
-            margin: '16px 0',
+            margin: '16px 0', 
           }}
         >
           <Breadcrumb.Item>Home</Breadcrumb.Item>
@@ -91,7 +90,7 @@ const Home = () => {
             background: colorBgContainer,
           }}
         >
-        CONTENIDO
+        <Text mark>BIENVENIDOS </Text>
         </div>
       </Content>
       <Footer

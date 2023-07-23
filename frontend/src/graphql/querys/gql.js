@@ -108,6 +108,9 @@ export const GET_PREDIO_DETAILS = gql`
           numeroDocumento
           nombreCompleto
           tipoDocumento
+          tipoDocumentoByTipoDocumento{
+            nombre
+          }
         }
       }
     }

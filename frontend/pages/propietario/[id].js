@@ -139,13 +139,15 @@ const PropietarioDetail = () => {
           </Button>
         </Breadcrumb.Item>
       </Breadcrumb>
-      <h2>Predio: {data?.predioById?.nombrePredio}</h2>
+      <h2 style={{ width:"150px", marginLeft:"10px", paddingLeft:"15px",
+      border:"3px solid black", borderRadius:"25px"}}
+      >Predio: {data?.predioById?.nombrePredio}</h2>
       <Divider>Propietarios</Divider>
       <div
         style={{
           padding: 24,
           minHeight: 360,
-          background: colorBgContainer,
+          
         }}
       >
         <Space wrap>
@@ -154,12 +156,15 @@ const PropietarioDetail = () => {
               <Card
                 title={propietario.nombreCompleto}
                 bordered={false}
-                style={{ width: 250, height: 250, margin: "1em" }}
+                style={{ width: 300, height: 400, margin: "1em" , top:"-10px"}}
               >
+                <p>Nombre Completo: {propietario.nombreCompleto}</p>
+                <p>Tipo de Documento: {propietario.tipoDocumentoByTipoDocumento.nombre}</p>
+                <p>Número de documento: {propietario.numeroDocumento}</p>
                 <p>Telefono: {propietario.telefono}</p>
                 <p>Direccion: {propietario.direccion}</p>
                 <p>Correo: {propietario.correo}</p>
-                <p>Nombre Completo: {propietario.nombreCompleto}</p>
+                
                 <Button
                   type="primary"
                   onClick={() => {
@@ -167,12 +172,12 @@ const PropietarioDetail = () => {
                     setPropietarioModal(propietario);
                   }}
                   icon={<EditOutlined />}
-                  style={{ marginLeft: "25px" }}
+                  style={{width:"250px" }}
                 >
                   Modificar propietario
                 </Button>
                 <Button
-                  style={{ marginLeft: "55px" }}
+                  style={{ width:"250px", top:"20px"}}
                   icon={<DeleteOutlined />}
                   type="primary"
                   onClick={() => onDeletePropietario(propietario)}

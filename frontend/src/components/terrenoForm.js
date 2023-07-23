@@ -21,7 +21,7 @@ const TerrenoForm = ({ onSubmit, initialValues = undefined }) => {
         label="Área total:"
         rules={[{ required: true, message: "El área total es obligatoria" }]}
       >
-        <InputNumber style={{ float: "right" }} />
+        <InputNumber style={{float:"right", width:"300px"}}/>
       </Item>
       <Item
         name="valorComercial"
@@ -30,7 +30,7 @@ const TerrenoForm = ({ onSubmit, initialValues = undefined }) => {
           { required: true, message: "El valor comercial es obligatorio" },
         ]}
       >
-        <InputNumber style={{ float: "right" }} />
+        <InputNumber style={{ float: "right", width:"300px"}} />
       </Item>
       <Item name="fuentesAgua" label="Tiene fuentes de agua:" required>
       <Select>
@@ -48,7 +48,7 @@ const TerrenoForm = ({ onSubmit, initialValues = undefined }) => {
           },
         ]}
       >
-        <InputNumber />
+        <InputNumber style={{width:"275px"}} />
       </Item>
       <Item name="tipo" label="Tipo de terreno:">
         <Select>

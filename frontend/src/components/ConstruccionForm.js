@@ -18,10 +18,10 @@ const ConstruccionForm = ({ onSubmit, initialValues = undefined }) => {
       <Item name="idPredio" hidden />
       <Item
         name="areaTotal"
-        label="Área total:"
+        label="Área total"
         rules={[{ required: true, message: "El área total es obligatoria" }]}
       >
-        <InputNumber style={{ float: "right" }} />
+        <InputNumber style={{float:"right", width:"300px"}} />
       </Item>
       <Item
         name="numPisos"
@@ -30,7 +30,7 @@ const ConstruccionForm = ({ onSubmit, initialValues = undefined }) => {
           { required: true, message: "El número de pisos es obligatorio" },
         ]}
       >
-        <InputNumber style={{ float: "right" }} />
+        <InputNumber style={{float:"right", width:"300px"}}/>
       </Item>
       <Item
         name="tipoConstruccion"

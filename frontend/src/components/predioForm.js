@@ -22,22 +22,22 @@ const PredioForm = ({
     >
       <Item name="id" hidden/>
       <Item  name="numeroPredial" label="Número predial" rules={[{required: true, message: 'El número predial es obligatorio'}]}>
-        <InputNumber style={{float:"right"}} />            
+        <InputNumber style={{float:"right", width:"300px"}} />            
       </Item>
       <Item name="avaluo" label="Avaluo">
-        <InputNumber style={{float:"right"}} />            
+        <InputNumber style={{float:"right", width:"300px"}}/>            
       </Item>
       <Item  name="nombrePredio" label="Nombre del predio">
-        <Input  />
+        <Input style={{float:"right", width:"300px"}}  />
       </Item>
       <Item  name="departamento"  label="Nombre del departamento">
-        <Input />
+        <Input style={{float:"right", width:"300px"}}/>
       </Item>
       <Item name="municipio" label="Nombre del municipio">
-        <Input  />
+        <Input  style={{float:"right", width:"300px"}} />
       </Item>
       <Item  name="direccion"  label="Dirección"rules={[{required: true, message: 'La dirección es obligatoria'}]}>
-        <Input />
+        <Input style={{float:"right", width:"300px"}}/>
       </Item>
       <Item wrapperCol={{ offset: 8, span: 16 }}>
       <Button icon={<SaveOutlined />} type="primary" htmlType="submit">

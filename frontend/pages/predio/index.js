@@ -107,7 +107,7 @@ const Home = () => {
           {data?.allPredios?.nodes?.map((predio) => {
             return (
               <Card
-                extra={<a href={`/predio/${predio.id}`}>Ver mas</a>}
+                extra={<a href={`/predio/${predio.id}`}>Detalles</a>}
                 title={predio.nombrePredio}
                 bordered={false}
                 style={{ width: 250, height: 250, margin: "1em" }}
